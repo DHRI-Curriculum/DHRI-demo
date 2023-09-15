@@ -12,9 +12,11 @@ export default function FrontPage(currentFile, allFiles,
   // create an object that represents an item on the front page, which could be an author box, facilitator, recommended reading, etc.
   //  That will then be rendered in the front page
 
-  const description = currentFile.data.description
-  const title = currentFile.data.title
-  const prerequisites = currentFile.data.prerequisites || []
+console.log(currentFile)
+
+  const description = currentFile.description
+  const title = currentFile.title
+  const prerequisites = currentFile.prerequisites || []
 
   const formattedDependencies = Object.keys(prerequisites).map(key => {
     const items = prerequisites[key]
@@ -52,8 +54,8 @@ export default function FrontPage(currentFile, allFiles,
     })
 
   // all objects in currentFile
-  const allObjects = Object.keys(currentFile.data).map(key => {
-    const item = currentFile.data[key]
+  const allObjects = Object.keys(currentFile).map(key => {
+    const item = currentFile[key]
     // if object name is 'prerequisites' or 'workshops' or 'insights' or 'installations' or 'description' or 'title' or 'cover_image', don't add to list
     if (key === 'prerequisites' || key === 'workshops' || key === 'insights' || key === 'installations' || key === 'description' || key === 'title' || key === 'cover_image' || key === 'content' || key === 'slug'
       || key === 'path' || key === 'itemPath' || key === 'programming_language') {

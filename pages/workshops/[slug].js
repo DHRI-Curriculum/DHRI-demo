@@ -54,17 +54,17 @@ export default function WorkshopPage({
   const content = currentFile.content
 
   // get front page content
-  const [facilitatorOpen, setFacilitatorOpen] = useState(false);
-  const frontPageContent = FrontPage(
-    currentFile,
-    {
-      workshops,
-      guides,
-      insights,
-      authors,
-      uploads,
-      facilitators,
-    }, facilitatorOpen, setFacilitatorOpen)
+  // const [facilitatorOpen, setFacilitatorOpen] = useState(false);
+  // const frontPageContent = FrontPage(
+  //   currentFile,
+  //   {
+  //     workshops,
+  //     guides,
+  //     insights,
+  //     authors,
+  //     uploads,
+  //     facilitators,
+  //   }, facilitatorOpen, setFacilitatorOpen)
 
 
   const [editorOpen, setEditorOpen] = useState(false);
@@ -74,7 +74,7 @@ export default function WorkshopPage({
   const [askToRun, setAskToRun] = useState(false);
 
   // convert markdown to html and split into pages
-  const htmlContent = function (content) {
+  const convertContenttoHTML = function (content) {
     const htmlifiedContent = ConvertMarkdown(content, uploads, workshops, setCode, setEditorOpen, setAskToRun);
     // split react element array into pages
     const allPages = [];
@@ -91,7 +91,7 @@ export default function WorkshopPage({
       }
       return acc;
     }, []);
-    allPages.unshift(frontPageContent);
+    // allPages.unshift(frontPageContent);
 
     return (
       allPages.map((page, index) => {  // page = [h1, p, p]
@@ -121,18 +121,18 @@ export default function WorkshopPage({
 
   // set defaults 
   const [currentPage, setCurrentPage] = useState(1);
-  const [pages, setPages] = useState(htmlContent(content));
+  const [pages, setPages] = useState(convertContenttoHTML(content));
   const [currentContent, setCurrentContent] = useState(pages[0]);
   const [currentContentLoaded, setCurrentContentLoaded] = useState(false);
   const [pageTitles, setPageTitles] = useState([]);
   const [currentHeader, setCurrentHeader] = useState(null);
 
 
-  const handleFacilitatorOpen = () => {
-    if (facilitatorOpen === false) {
-      setFacilitatorOpen(true);
-    }
-  };
+  // const handleFacilitatorOpen = () => {
+  //   if (facilitatorOpen === false) {
+  //     setFacilitatorOpen(true);
+  //   }
+  // };
 
   // list of page titles and highlight current page
   useEffect(() => {
@@ -161,7 +161,7 @@ export default function WorkshopPage({
   }, [currentPage]);
 
   useEffect(() => {
-    setPages(htmlContent(content));
+    setPages(convertContenttoHTML(content));
     setCurrentPage(1);
     const urlParams = new URLSearchParams(window.location.search);
     const page = Number(urlParams.get('page'));
@@ -170,7 +170,7 @@ export default function WorkshopPage({
       setCurrentContent(pages[page - 1]);
       setCurrentContentLoaded(true);
     } else {
-      setPages(htmlContent(content));
+      setPages(convertContenttoHTML(content));
       setCurrentPage(1);
       setCurrentContentLoaded(true);
     }
@@ -184,6 +184,13 @@ export default function WorkshopPage({
       setCurrentContent(pages[0]);
     }
   }, [pages])
+
+  useEffect(() => {
+    if (currentFile != null) {
+      const frontPageContent = FrontPage(currentFile);
+      setPages([frontPageContent, ...convertContenttoHTML(currentFile.content)]);
+    }
+  }, [currentFile])
 
   useEffect(() => {
     // check if current content has changed and get the current h1
@@ -285,13 +292,13 @@ export default function WorkshopPage({
           setAskToRun={setAskToRun}
           language={currentFile.programming_language}
         />}
-      <ClassFacilitator
+      {/* <ClassFacilitator
         // You'll have to make state variables in the slug and pass them down
         name={facilitators}
         bio={'bio'}
         facilitatorOpen={facilitatorOpen}
         handleClose={() => setFacilitatorOpen(false)}
-      />
+      /> */}
 
     </Container>
   )
