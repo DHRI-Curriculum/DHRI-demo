@@ -1,7 +1,6 @@
 ---
 title: Introduction to Python
 description: Python is a general-purpose programming language suitable for a wide variety of tasks in the digital humanities. Learning Python fundamentals is a gateway to analyzing data, creating visualizations, composing interactive websites, scraping the internet, and engaging in the distant reading of texts. This workshop first introduces participants to core programming concepts such as data types, variables, and functions. Participants will then learn about basic control flow by writing small programs with loops and conditional statements. They will also learn to problem solve, and practice searching for answers and debugging scripts. The workshop wraps up by exposing participants to intermediate tools for further exploration.
-cover_image: /images/workshops/img2.jpg
 programming_language: python
 learning objectives:
     - Understand what Python is and, in general terms, what it can do.
@@ -18,14 +17,13 @@ facilitators:
 estimated time:
     - 3 - 4 hours
 
-dependencies: 
-    workshop prerequisites: 
-        command-line: 
-            description: Introduction to the Command Line (Required) This workshop makes reference to concepts from the Command Line workshop, and having basic knowledge about how to use the command line will be central for anyone who wants to learn about programming with Python.
-            required: true
-        data-ethics: 
-            description: Data Ethics (Recommended) This workshop will give you a basis for thinking through the ethical considerations of your programming projects.
-            recommended: true
+prerequisites: 
+    - command line: 
+        description: Introduction to the Command Line (Required) This workshop makes reference to concepts from the Command Line workshop, and having basic knowledge about how to use the command line will be central for anyone who wants to learn about programming with Python.
+        required: true
+    - data ethics: 
+        description: Data Ethics (Recommended) This workshop will give you a basis for thinking through the ethical considerations of your programming projects.
+        recommended: true
 
 authors:
     - 'Kalle Westerling'
@@ -49,15 +47,15 @@ ethical considerations:
     - As we learn about the Python data types and grammar, keep in mind that working within any digital format requires making seemingly neutral choices that carry ethical consequences. When using python, be aware of the ways the ways that data is transformed into computable form. What choices are you making about your data? What is being included, and what is left out? What are reductions and assumptions necessary to encode your data? If you are more interested in thinking further about data types and our choices in relation to data, you should have a look at our [Data Literacies workshop](https://www.github.com/DHRI-Curriculum/data-literacies).
 
 projects:
-    description: "Projects that use the skills you'll learn in this workshop:"
-    The NEH Impact Index:
+    - The NEH Impact Index:
         description: Built by former Digital Fellow Patrick Smyth, The NEH Impact Index makes visible the distribution of funds by National Endowment for the Humanities across the United States. The website uses python to map projects, communities, and cultural institutions who have received NEH support. You can check out the code on Github.
         link: http://www.nehimpact.org/about
-    Mapping Arts NYC: 
+    - Mapping Arts NYC: 
         description: Mapping Arts NYC, created in 2019 by the Graduate Center’s Data for Public Good fellows, “is a project that explores the geography and representation of arts and culture in New York City over time.” It includes a number of Python scripts written to clean and make sense of all the data.
         link: http://gcdiprojects.org/MappingArtsNYC/
+        
 resources:
-    Digital Fellows’ Python Cheat Sheet: 
+    - Digital Fellows’ Python Cheat Sheet: 
         description: See the Digital Fellows’ Python Cheat Sheet for handy commands that we cover in this workshop.
         link: https://curriculum.dhinstitutes.org/shortcuts/workshop/python
 
@@ -313,7 +311,7 @@ For the rest of this session, we're going to expand beyond the REPL to write and
 
 ## Your First Script
 
-To open the code editor, click the RUN button below. Then, type the following line into the code editor and click the RUN button in the slide-out panel:
+To open the code editor, click the Open Editor button below. Then, type the following line into the code editor and click the RUN button in the slide-out panel:
 
 ```python
 print("Hello World!")
@@ -453,7 +451,6 @@ In the Python REPL below, try to create as many errors as you can in the next fe
 
 ### Solution
 
-TODO: possibly fix up solutions (in terms of display)
 Some examples of **syntax errors** include...
 
 - Starting the variable name with a special character:
@@ -562,13 +559,13 @@ def add_one(x):
  
 When creating a function, we begin by writing `def` before our chosen function name. The function name is typically descriptive in nature. We named the above function `add_one` following [Python naming conventions](https://www.python.org/dev/peps/pep-0008/#function-and-variable-names), as the function will be ADDING 1 to our inputted integer. We always need a closed parentheses `()` after our function name, which in this case, takes one argument (or input), which we will temporarily call `x` (we can name this parameter whatever we want, as long as we use the same name within the body of the function). Then, we end the first line with a `:`, return, and indent by 2 spaces to write code describing what this function should "do." In this case, we want the function to `print` the result of adding `1` to our input, or `x`. Remember, we need parentheses every time we print something!
 
-Next, if we want to call our function, we will need to actually pass in an argument to see a result. To do so, we write the following line of code below our function (making sure this next line _isn't_ indented):
+Next, if we want to __call__ our function, we will need to actually pass in an argument to see a result. To do so, we write the following line of code below our function (making sure this next line _isn't_ indented):
 
 ```python
 add_one(2)
 ```
 
-Here, we are telling the computer to pass in `2` to see if we get our expected output of `3`.
+Here, we are calling our function and telling the computer to pass in `2` to see if we get our expected output of `3`.
 
 ### Optional 
 
@@ -599,7 +596,7 @@ print(add_one(2))
 
 ## Writing your second function
 
-Our functions do not have to be "mathematical" in nature. Let's say that I wanted to say a friendly hello, but didn't want to type out a long sentence every time I wanted to do so. We could automate this process with a function. In the code editor below, write the following lines:
+Our functions do not have to be "mathematical" in nature. Let's say that I wanted to say a friendly hello, but didn't want to type out a long sentence every time I wanted to do so. We could automate this process with a function. In the code editor, write the following lines:
 
 ```python
 def greet():
@@ -651,7 +648,7 @@ Remember lists? They look like this:
 books = ['Gender Trouble', 'Cruising Utopia', 'Living a Feminist Life']
 ```
 
-Let's create a list together and print it out. In the code editor below, write the following lines:
+Let's create a list together and print it out. In the code editor, write the following lines:
 
 ```python
 books = ['Gender Trouble', 'Cruising Utopia', 'Living a Feminist Life']
@@ -804,7 +801,7 @@ for <variable name> in <list name>:
 
 Indented code like this is known as a "code block." Python will run the `<do something>` code in the code block once for each item in the list. You can also refer to `<variable name>` in the `<do something>` block.
 
-You can also loop through items within a string. Type the following code into the editor below:
+You can also loop through items within a string. Type the following code into the editor to see the result:
 
 ```python
 for letter in "hello":
@@ -812,7 +809,7 @@ for letter in "hello":
 ```
 
 <CodeEditor></CodeEditor>
- 
+
 The result should print out each letter of the string `hello`, one by one.
 
 ## A Note on Variable Names
@@ -1347,6 +1344,7 @@ Once you get the loop to work, you can add more `elif` statements to add more bo
 Here's how you would include a `while` statement in our library application:
 
 <Secret>
+<CodeEditor>
 library = ["Orlando", "Confessions of the Fox", "These Waves of Girls"]
 user_exit = False
 while user_exit == False:
@@ -1366,6 +1364,9 @@ while user_exit == False:
         user_exit = True
     else:
         print("I don't know what you want me to do!")
+</CodeEditor>
+
+Make sure to type "exit" to end the program and view the results of your commands.
 </Secret>
 
 ## Evaluation
@@ -1690,7 +1691,7 @@ __10. Why would someone use dir()? (Select all that apply):__
 
 Revisit the [Objects in Python](/workshops/python/?page=2) lesson to learn more.
 
-## __Suggested Further Readings and Tutorials__
+## Suggested Further Readings and Tutorials
 
 Hannah Aizenman, a former Digital Fellow, wrote up a great blog post introducing python "libraries," or collections of python code, for various project types, from creating a website, to getting, exploring, and visualizing data, and working with images, video, spreadsheets, among other ideas. Check out her suggestions in [How Do I Solve [insert problem here] With Python?](https://digitalfellows.commons.gc.cuny.edu/2018/02/13/python_libraries/) 
 

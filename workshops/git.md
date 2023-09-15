@@ -1,7 +1,6 @@
 ---
 title: 'Introduction to Git and GitHub'
 description: 'Git and GitHub are powerful tools for collaborative and individual projects. Git is a version control software that aids with tracking changes made to a set of files over time. GitHub is a web-based platform for storing and sharing project files online. This session begins with a conceptual overview of both tools, including an introduction to fundamental concepts such as version control and practical applications like developing a syllabus or collaborative writing. This session then covers initializing Git repositories, committing changes, pushing to GitHub, cloning repositories to your local machine, and forking repositories from other accounts on GitHub.'
-cover_image: '/images/workshops/img4.jpg'
 
 learning objectives:
   - Learn what Git, GitHub and Markdown are, how do they differ, and how they can be integrated to support your scholarly work
@@ -17,13 +16,12 @@ learning objectives:
 estimated time:
   - 4 hours
 
-dependencies: 
-    workshop prerequisites: 
-        command-line: 
-            description: Introduction to the Command Line (Required) This workshop makes reference to concepts from the Command Line workshop, and having basic knowledge about how to use the command line will be central for anyone who wants to learn about git and GitHub.
-            required: true
-        visual-studio-code: 
-            description: (Recommended) You can use any plain text editor, but for our purposes Visual Studio Code ("VS Code") will be used.
+prerequisites:
+  - command-line: 
+      description: Introduction to the Command Line (Required) This workshop makes reference to concepts from the Command Line workshop, and having basic knowledge about how to use the command line will be central for anyone who wants to learn about git and GitHub.
+      required: true
+  - visual-studio-code: 
+      description: (Recommended) You can use any plain text editor, but for our purposes Visual Studio Code ("VS Code") will be used.
 
 before getting started:
   - "[Create an account on GitHub](https://github.com/join) (required) You need to have a GitHub account for the purposes of this workshop. It is free to sign up via the link."
@@ -59,9 +57,9 @@ resources:
 **GitHub** is an online platform for hosting Git repositories. It functions for some, predominantly programmers, as a social network for sharing and collaborating on code-based projects. Users can share their own projects, as well as search for others, which they can then often work on and contribute to. Digital Humanists, librarians, and other academics are also finding ways Git and GitHub are useful in writing projects and teaching. GitHub also serves as a web-hosting platform, allowing users to create websites from their repositories.
 
 
-## Highlighting Distinctions
+### Highlighting Distinctions
 
-As we move forward it's important to make sure we're firm on the distinctions between the three different tools outlined above.
+As we move forward it's important to make sure we're firm on the distinctions between the two different tools outlined above.
 
 **Git** is a software that you use on your laptop, or your local computer/machine. The repository with your project's files is stored on your hard drive. You also edit the text files on your local machine using a plain text editor, which is another software on your local computer like Visual Studio Code.
 
@@ -100,7 +98,7 @@ Which best describes GitHub: (select all that apply)
 - the practice of tracking and organizing the state of a file over time, as it changes
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -121,7 +119,7 @@ A [study of how Digital Humanists use GitHub](https://digitalscholarship.files.w
 - Keeping research notes
 - Hosting syllabi and course materials
 
-## Why Use GitHub?
+### Why Use GitHub?
 
 Participants in the study said they found GitHub useful in their Digital Humanities work for several reasons. In particular, it facilitated:
 
@@ -196,7 +194,7 @@ What tasks could Git and/or GitHub offer support to? (select all that apply)
 - Hosting syllabi and course materials*
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -214,13 +212,13 @@ In addition to the command line, you'll be using your text editor and your brows
 
 Because you'll be moving between these three spaces throughout the workshop, you may want to use (<kbd>command (⌘)</kbd> + <kbd>tab</kbd>) or (<kbd>control</kbd> + <kbd>tab</kbd>) to move quickly between the three windows on your desktop.
 
-## Accessing the Terminal
+### Accessing the Terminal
 
-### macOS
+__macOS__
 
 Hold the <kbd>command (⌘)</kbd> key and press the <kbd>space</kbd> bar at the same time to bring up the "Spotlight Search" window. Type `terminal`, followed by <kbd>enter</kbd> to quickly open the Terminal.
 
-### Windows
+__Windows__
 
 Press the <kbd>windows</kbd> button on your keyboard. When the search menu pops up, type `git bash` and press <kbd>enter</kbd>.
 
@@ -359,7 +357,7 @@ Which command do you use to check where you are?
 
 Through this section, you'll be checking your installation and configuring Git with your own name and information.
 
-## Check Your Installation
+### Check Your Installation
 
 First, let's make sure Git has been successfully installed. In your terminal, type the following command:
 
@@ -427,7 +425,7 @@ Now Git is tracking our directory. However, it has not done any versioning yet. 
 
 Before version control is useful, we'll have to create a text file for Git to track. For this session, the file we will track will be a course syllabus—we'll create that next.
 
-### Creating a Syllabus file
+## Creating a Syllabus file
 
 To create a plain text file, we're going to switch to our text editor, Visual Studio Code, to create and edit a file named `syllabus.md` and save it to our `git-practice` folder. The `.md` extension indicates that it is a Markdown file, which is a special file format we will dive into in the next section.  
 
@@ -522,7 +520,7 @@ Use these five elements—headings, emphasis, lists, links, and paragraphs—to 
 
 If you want an a more advanced challenge, you can review some additional markdown elements on [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and add some extra features like images, blockquotes, or horizontal rules.
 
-## Example
+### Example
 
 You can look at an example syllabus in raw text form [here](https://raw.githubusercontent.com/DHRI-Curriculum/git/main/sections/syllabus.md). You can see what it looks like when it's rendered by GitHub [on GitHub](https://github.com/DHRI-Curriculum/git/blob/main/sections/syllabus.md). When editing the markdown file in Visual Studio Code, it might look like this:
 
@@ -563,7 +561,7 @@ Which best describes Markdown: (select all that apply)
 - refers to project folders as "repositories"
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -573,7 +571,7 @@ Do you remember the glossary terms from this section?
 
 Git's primary function is version control, or to track a project as it exists at particular points in time. Now that we have a file to track—our `syllabus.md`—let's use Git to save the current state of the repository as it exists now.
 
-## A Metaphor for Adding and Committing
+### A Metaphor for Adding and Committing
 
 In Git, a _commit_ is a snapshot of a repository that is entered into its permanent history. To commit a change to a repository, we take two steps:
 
@@ -758,7 +756,7 @@ Which best describes the `-m` flag used when committing changes to a file? (sele
 - It's nonsense—who needs it?!
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -844,12 +842,14 @@ Use `git push origin main` to upload, or _push_, that file to your repository on
 - Do you need to use `git init` after after adding a new assignment file to your folder?
 - What about the `-u` flag in the `git push origin main` command? Does this flag need to be used to add the assignment to your repository on GitHub?
 
-## Solution
+### Solution
 
+<Secret>
 In response to _Challenge 3_:
 - No, you don't need to push to GitHub every time, or at all even, if you didn't want to share your changes publicly. Git is the software that tracks the changes, and you review them on your local machine using Git as well.
 - No, you don't need to initialize the folder after adding a new file for an assignment or otherwise. In this case, we've already initialized the process; Git is tracking the folder. After the file is added, we just need to notify Git to take a snapshot of the additions and changes using the `git add`, `git commit` sequence. We can also use `git push` to share those changes on GitHub.
 - No, the `-u` flag does not need to be used again. This flag is only necessary when setting up the original connection between the folder on your local machine and the folder on GitHub.
+</Secret>
 
 ## Evaluation
 
@@ -893,7 +893,7 @@ What happens if you _stage_ and _commit_ files, but not _push_ the changes? (sel
 - You will have communicated with GitHub and shared a copy of the updated files.
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -904,7 +904,7 @@ Do you remember the glossary terms from this section?
 
 GitHub was built for sharing and collaborating on projects. A key advantage of the platform is that you can find lots of bits of software that do many different things—such as code for plugins for WordPress or Leaflet. Increasingly, you might find syllabi or open writing projects. If a project is public, you can save a copy of it to your local machine, work on it, save your amendations and share it on your own GitHub account. Like we've already mentioned, GitHub usefully helps track attribution along the way.
 
-Cloning and forking are the basic functions of this capability. Each are first explained below, and followed by an example and activity to further explain.
+Cloning and forking are the basic functions of this capability. Each are explained in the following sections, followed by an example and activity to further explain.
 
 ## Cloning
 
@@ -984,13 +984,15 @@ You might use this method if you were going to teach your own Git & GitHub works
 2. Make changes to the files on your local machine. Remember to save them!
 3. Use the 3-step process of stage, commit and push to return the amended files to the repository on GitHub.
 
-## Solution
+### Solution
 
+<Secret>
 Rather than write out the solution here, I want to encourage you to go back through the lessons as needed.
 
 You'll know you've completed step one when the project folder (called `git`) shows up on your local machine.
 
 After you've made and saved the changes, you'll know you've completed step three when your changes appear in the project folder on _your_ GitHub account.
+</Secret>
 
 ## Evaluation
 
@@ -1012,7 +1014,7 @@ Which best describes _forking_? (select one)
 - Copying a repository from your account to someone else's account.
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -1024,7 +1026,9 @@ Do you remember the glossary terms from this section?
 
 You made it to the end of this workshop—congratulations! You now know a little more about why using Git and GitHub in your scholarly practice might be advantageous, and what the challenges are. Below the quiz section you'll find a set of readings and tutorials to supplement the lessons outlined herein, and offer additional ways of advancing your use beyond the basics outlined here. There are also additional challenges to test your skills, as well as discussion questions to test your conceptual understanding of these tools. Enjoy!
 
-## Review your knowledge: 8 questions from the lessons
+### Review your knowledge: 8 questions from the lessons
+
+TODO: Fix relative linking when switching between display formats
 
 __1. What tasks could Git and/or GitHub offer support to? (Select all that apply)__
 
@@ -1130,12 +1134,12 @@ Revisit lesson [Pushing to GitHub](/workshops/git/?page=10) to learn more.
 - The University of Rhode Island has created ["Open Licensing with Creative Commons: The Creative Commons Licenses"](https://uri.libguides.com/creativecommons/licenses), a good introduction to creative commons as a concept with many links to other websites.
 - J.R. Dingwall's open-access book [_Creative Commons: An Educator's Course Guide to Creative Commons_](https://openpress.usask.ca/creativecommons) is a good place to start for anyone interested in how the Creative Commons can empower the open education movement with "tools that help create better, more flexible and sustainable open educational resources (OER), practices, and policies," as he writes in Part V of the book, ["Creative Commons for Educators."](https://openpress.usask.ca/creativecommons/part/creative-commons-for-educators/)
 
-## Other Tutorials
+## Other Resources
 
 - FreeCodeCamp has an excellent introductory tutorial for how to use git on your computer, called ["An intro to Git: What it is and how to use it"](https://www.freecodecamp.org/news/what-is-git-and-how-to-use-it-c341b049ae61/).
 - Don't miss Github's official documentation around [Getting Started with GitHub](https://help.github.com/en/github/getting-started-with-github). It is detailed and provides more in-depth examples of how to interact with GitHub using your command line.
 
-## Projects or Challenges to Try
+### Projects or Challenges to Try
 
 - Fill in your syllabus repository further, adding not only to your syllabus.md file, but adding additional content such as assignments.
 - Create a website from your syllabus files using GitHub Pages or Jekyll.
@@ -1144,7 +1148,7 @@ Revisit lesson [Pushing to GitHub](/workshops/git/?page=10) to learn more.
 - Use Git to track a project on your local machine. 
 - Find and/or modify an existing public project on GitHub.
 
-## Discussion Questions
+### Discussion Questions
 
 - What does your current version control workflow look like and what are the challenges it poses; or how could it be improved?
 - How can git support the work you are already doing? 

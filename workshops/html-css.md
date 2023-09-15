@@ -1,7 +1,6 @@
 ---
 title: 'Introduction to HTML and CSS'
 description: 'HTML (Hypertext Markup Language) is used to create and organize the content of a website. CSS (Cascading Style Sheets) is used for website design and layout. Together, these languages form the foundation of what one needs to know to create useful and well-designed websites. This workshop walks participants through the fundamentals of HTML and CSS. The purpose of this website is to help participants understand the rudiments of making websites, with the intention of providing a strong base of knowledge from which to imagine web-based digital humanities projects.'
-cover_image: '/images/workshops/img3.jpg'
 
 learning objectives:
     - Familiarize yourself with the anatomy of a webpage and how the Internet works.
@@ -11,14 +10,14 @@ learning objectives:
 estimated time:
     - 10 hours
 
-dependencies:
-    workshop prerequisites:
-        command-line:
-            description: (Required) This workshop makes reference to concepts from the Command Line workshop, in particular, in creating new folders and files, as well as moving around in file directories. Completing the Command Line workshop will make you more comfortable with working with HTML/CSS.
-            required: true
-    installations:
-        visual-studio-code: 
-            description: (Recommended) You can use any plain text editor, but for our purposes Visual Studio Code ("VS Code") will be used.
+prerequisites:
+    - command-line:
+        description: (Required) This workshop makes reference to concepts from the Command Line workshop, in particular, in creating new folders and files, as well as moving around in file directories. Completing the Command Line workshop will make you more comfortable with working with HTML/CSS.
+        required: true
+
+installations:
+    - visual-studio-code: 
+        description: (Recommended) You can use any plain text editor, but for our purposes Visual Studio Code ("VS Code") will be used.
 
 readings:
     - "[Introduction: Promises and Perils of Digital History](http://chnm.gmu.edu/digitalhistory/introduction/)"
@@ -39,21 +38,20 @@ resources:
     - "[CSS Cheat Sheet](https://courses.cs.washington.edu/courses/cse154/15sp/cheat-sheets/css-cheat-sheet.pdf): A cheat sheet with some common CSS commands."
     - "[Web Development with Accessibility in Mind](https://www.w3.org/standards/webdesign/accessibility): This guide was created by the W3C, which is the international community that develops Web standards. This guide provides information on ways of making websites more accessible to those with disabilities."
 
-
 ---
 
 # Getting Started with HTML and CSS
 
 Websites seem like these magical things that appear when we open our web browser (i.e. Chrome, Firefox, Safari). We know that websites are hypertext, meaning that we can click between links, traveling from page to page until we find what we need. What may be less obvious about websites is that, fundamentally **websites are plain text documents**, usually written in HTML or another web-based markup language, such as XML or XHTML.  
   
-*Fun fact*: **More than 90% of all websites (whose markup language we know) use HTML**
-[(w3techs.com)](https://w3techs.com/technologies/details/ml-html/all/all).
+<Info>**Fun fact**: More than 90% of all websites (whose markup language we know) use HTML
+[(w3techs.com)](https://w3techs.com/technologies/details/ml-html/all/all).</Info>
 
-## Hypertext Markup Language (HTML)
+### Hypertext Markup Language (HTML)
 
 HTML is a markup language used to write web-based documents. It enables us to provide web browsers with information about the _content_ of a document. We can, for example, indicate that some part of our document is a paragraph, image, heading, or link. The browser uses this information when displaying the document for users.
 
-## Markup Language vs. Programming Language
+### Markup Language vs. Programming Language
 
 HTML is a *markup* language, not a programming language. Programming languages are used to transform data, by creating scripts that organize an output of data based on a particular input of data. A markup language is used to control the presentation of data.
 
@@ -61,13 +59,13 @@ For a practical example of this difference, we can think about tables. A program
 
 Fundamentally, then, a script or program is a set of instructions given to the computer. A document in a markup language determines how information is presented to a user.
 
-**NOTE—Markup vs Markdown:** Markdown and HTML are both types of markup languages; Markdown is a play on words. Markup languages help format content.
+<Info>**Markup vs Markdown:** Markdown and HTML are both types of markup languages; Markdown is a play on words. Markup languages help format content.</Info>
 
-## Cascading Style Sheets (CSS)
+### Cascading Style Sheets (CSS)
 
 CSS is usually used in conjunction with HTML. HTML tells the browser what the different parts of a document _are_. CSS tells the browser what the parts of the document should _look like_. It is essentially a set of rules that are applied when rendering an HTML document. Its name—Cascading Style Sheets—refers to the fact that there is an order of precedence in how the browser applies CSS rules to a document. More specific rules overwrite less specific rules.
 
-## Where Does the Internet Come In?
+### Where Does the Internet Come In?
 
 Together, these languages can be used to write and style a website using a text editor (such as Visual Studio Code) directly from your computer. No internet access needed.
 
@@ -78,12 +76,13 @@ In our activities during this workshop we will focus on building locally-hosted 
 ## Evaluation
 
 True or False: The primary difference between markup languages and programming languages is that markup languages are used to determine the format, appearance, and purpose of content, whereas programming languages are used to transform data.
+
 <Quiz>
 - True*
 - False
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -103,7 +102,7 @@ Do you remember the glossary terms from this section?
 
 ![Image showing dropdown menu that appears when right clicking on a website in Chrome or Firefox](/images/html-css/capture.png)
 
-## What You Are Seeing
+### What You Are Seeing
 
 A second tab should open in your browser displaying the underlying code of the page. This is the code that is used to make and render the page in your web browser.
 
@@ -172,11 +171,11 @@ On macOS, click on the Finder in your dock (the apps at the bottom of the screen
 
 On Windows, click the `projects` folder icon on your desktop. Navigate to `projects`, then `htmlpractice`. Double click the `index.html` file. If it does not open in a browser, right click the `index.html` icon and select "Open with..." from the menu. Select Firefox or Google Chrome from the app list that appears.
 
-## What Happens?
+### What Happens?
 
 When you open the empty template, you'll see only a blank web page. Open your secondary menu (right click on Windows, hold <kbd>control</kbd> and click with macOS) and view the page source.
 
-## What Should Happen When I Open Each of my Two New Files?
+### What Should Happen When I Open Each of my Two New Files?
 
 When you "View Page Source," you should see the code for the basic template.
 
@@ -185,10 +184,13 @@ No content renders on the page, because there is no content in the template at t
 ## Evaluation
 
 Which one of these two HTML commands is also known as the "root element"?
+
+<Quiz>
 - `<!DOCTYPE html>`
 - `<html lang="en">`*
+</Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -245,7 +247,7 @@ Which one of the following statements is correct:
 - Tags have opening and closing elements.
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -298,7 +300,7 @@ Then, re-save the file. Open it in your browser again or refresh the page if sti
 
 What do you notice about how the information is organized in the webpage? In other words, where are the title, heading, and paragraph text?
 
-## What Should You See?
+### What Should You See?
 
 The heading should appear at the top of the page, followed by the paragraph text. The heading text should be larger. The title should appear in the browser window tab.
 
@@ -331,9 +333,9 @@ The following appears as a link to the `about.html` page in the same folder as `
 
 On your webpage it will appear as:
 
-> [About](#)
+[About](/about.html)
 
-This link is asking the browser to look for a file titled `about.html` in the same folder. If a file named `about.html` is not in the same folder, clicking the link will result in a `404` ("Page Not Found") error.
+This link is asking the browser to look for a file titled `about.html` in the same folder. If a file named `about.html` is not in the same folder, clicking the link will result in a `404` ("Page Not Found") error (as this broken link does).
 
 ## Option Two: Absolute Links
 
@@ -345,7 +347,7 @@ An absolute link includes information that allows the browser to find resources 
 
 On your webpage it will appear as:
 
-> [Google](https://www.google.com)
+[Google](https://www.google.com)
 
 This pathway is directing your browser to look online for this text document at the URL address provided.
 
@@ -357,7 +359,7 @@ The `<a>` tag, or anchor tag, creates a link. The text within the `<a>` and `</a
 
 There is another technical difference between the two options above.
 
-## Relative vs. Absolute Links: When to Use Which One
+### Relative vs. Absolute Links: When to Use Which One
 
 Use relative links when referring to pages on your own site. The main advantage of using relative links to pages on your site is that your site will not break if it is moved to a different folder or environment.
 
@@ -369,7 +371,7 @@ Use relative links when referring to pages on your own site. The main advantage 
 4. Lastly, include an absolute link to a page of your choosing. Remember that an absolute link includes the protocol (for example, `http:`) and also a domain (for example, `cuny.edu`), such as `http://cuny.edu/about`.
 5. Re-save your text files and reopen or refresh them in your browser.
 
-## Check If It Worked
+### Check If It Worked
 
 When your pages are updated, you should be able to navigate from your "Home" page to your "About" page, and vice versa. You should also be able to navigate to the external web page.
 
@@ -382,7 +384,7 @@ Which one of the following options is a relative link?
 - `<a href="digitalProject.html">Digital Project</a>`*
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -418,7 +420,7 @@ To add alternative text to an image, you add an additional attribute, `alt` foll
 
 For more information about using alt text, see what the [Social Security Administration](https://www.ssa.gov/accessibility/files/SSA_Alternative_Text_Guide.pdf) has to say.
 
-## What Images May I Use On My Site?
+### What Images May I Use On My Site?
 
 If you're planning to use images that you did not take or make yourself, you'll need to use "public domain" or "open license" images.
 
@@ -434,11 +436,11 @@ Using the code above as a reference, add that image into your `index.html` file,
 
 ## Evaluation
 
-True or False: Does including "alt text" in websites improve their accessibility?
+Does including "alt text" in websites improve their accessibility?
 
 <Quiz>
-- True*
-- False
+- Yes*
+- No
 </Quiz>
 
 # Conventions
@@ -695,7 +697,7 @@ Note the different syntax being used to select items for for styling with rule s
 
 Copy and paste the CSS rules above into your `style.css` file and re-save the file. Then open or refresh your `index.html` file in your browser and see what happens.  
   
-**What should happen?**  
+### What should happen?
   
 The formatting of the text on your page should change accordingly. Your `<h1>` should be orange and italic, for example.  
   
@@ -710,7 +712,7 @@ How do we associate a CSS file with an HTML page?
 - By putting the CSS file in the same folder as the HTML page.
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -818,7 +820,7 @@ Class selectors in CSS are denoted with a period in front of the class name you'
 
 ## ID Selectors
 
-...look like this in the CSS—the name of the selector preceded by a hashmark (`#`) (also known as a pound sign or octothorpe):
+ID selectors look like this in the CSS—the name of the selector preceded by a hashmark (`#`) (also known as a pound sign or octothorpe):
 
 ```css
 #navbar {
@@ -836,17 +838,23 @@ Class selectors in CSS are denoted with a period in front of the class name you'
 </ul>
 ```
 
-## Tip
+TODO: Figure out how to link to the correct section with either the h1 or h2 structuring.
 
-_If you run into an error, be sure to check your punctuation. Oftentimes the problem is a typo, or overlooking a semi-colon, a period, etc._ See the [Troubleshooting](https://curriculum.dhinstitutes.org/workshops/html-css/lessons/?page=17) section for more information on common issues.
+<Info>__Tip__
+
+If you run into an error, be sure to check your punctuation. Oftentimes the problem is a typo, or overlooking a semi-colon, a period, etc. See the [Troubleshooting](/document/html-css.md/?page=58) section for more information on common issues.
+</Info>
 
 ## Evaluation
 
 True or False: Classes are used to create categories of related elements, IDs are used create unique identifiers.
+
+<Quiz>
 - True*
 - False
+</Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -858,7 +866,7 @@ Do you remember the glossary terms from this section?
 
 Below is a list of useful properties that can be modified with CSS, compiled by Digital Fellow [Patrick Smyth](http://smythp.com). There are also [CSS cheatsheets](https://courses.cs.washington.edu/courses/cse154/15sp/cheat-sheets/css-cheat-sheet.pdf) available online.
 
-## Color
+### Color
 
 Determines text color. Can be a word or a hex value, like `#FFFFFF`:
 
@@ -867,7 +875,7 @@ color: blue;
 color: #000000;
 ```
 
-## Background Color
+### Background Color
 
 Sets the background color of an element.
 
@@ -876,7 +884,7 @@ background-color: pink
 background-color: #F601F6;
 ```
 
-## Text Align
+### Text Align
 
 Aligns text to the left, center, or right.
 
@@ -884,7 +892,7 @@ Aligns text to the left, center, or right.
 text-align: center;
 ```
 
-## Padding
+### Padding
 
 The space between contents and the "box" (`<div>`) surrounding it.
 
@@ -893,7 +901,7 @@ padding: 10px;
 padding-right: 10px
 ```
 
-## Margin
+### Margin
 
 The space between an element's box and the next element (or the edge of the page).
 
@@ -902,7 +910,7 @@ margin: 10px;
 margin-top: 10px;
 ```
 
-## Width and Height
+### Width and Height
 
 Sets the width or height of an element. Typically, don't set both of these.
 
@@ -911,7 +919,7 @@ width: 50%;
 height: 40px;
 ```
 
-## Float
+### Float
 
 Determines if text wraps around an element.
 
@@ -919,7 +927,7 @@ Determines if text wraps around an element.
 float: left;
 ```
 
-## Display
+### Display
 
 Determines if an element is treated as a block or inline element. Can also be set to `none`, which makes the element disappear.
 
@@ -929,7 +937,7 @@ display: block;
 display: none;
 ```
 
-## List Style
+### List Style
 
 Determines default styling on lists. Usually best to set it to `none`.
 
@@ -937,7 +945,7 @@ Determines default styling on lists. Usually best to set it to `none`.
 list-style-type: none;
 ```
 
-## Font Family
+### Font Family
 
 Sets the font. Usually best to copy this from [Google Fonts](https://fonts.google.com/) or another web font repository.
 
@@ -1031,6 +1039,7 @@ You also need a server to transfer your files to, where they can be stored and s
 - [The Best Web Hosting Services](https://www.makeuseof.com/tag/best-web-hosting-services/)
 - [Top 7 Easy and Free Web Hosting Services](https://www.makeuseof.com/tag/top-7-easy-and-free-web-hosting-services/)
 - [10 Ways That Free Web Hosting Is Bad for Your First Website](https://www.makeuseof.com/tag/free-web-hosting-is-bad/)
+
 
 ## Keywords
 
@@ -1215,6 +1224,6 @@ If you are unsure of which HTML/CSS commands to use, check out the [HTML Cheat S
 
 ## Discussion Questions
 
-- In this workshop, we have focused on the fundamentals of HTML and CSS. The point was to provide an introduction to the workings of websites. In practice, however, the websites that we desire to build will have complex use cases. What are some websites that you imagine building? What kinds of interactive features would you like to have in your website?
+1. In this workshop, we have focused on the fundamentals of HTML and CSS. The point was to provide an introduction to the workings of websites. In practice, however, the websites that we desire to build will have complex use cases. What are some websites that you imagine building? What kinds of interactive features would you like to have in your website?
 
-- Some websites provide information clearly and in an engaging manner. Others might inundate with a barrage of content that leaves one mystified. What would you say are some of the characteristics of well-designed websites? Which websites do you consider a joy to use? What design elements (such as font, color, layout, and menus) stand out to you as being particularly important in making good websites?   
+2. Some websites provide information clearly and in an engaging manner. Others might inundate with a barrage of content that leaves one mystified. What would you say are some of the characteristics of well-designed websites? Which websites do you consider a joy to use? What design elements (such as font, color, layout, and menus) stand out to you as being particularly important in making good websites? 

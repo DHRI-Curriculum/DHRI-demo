@@ -1,7 +1,6 @@
 ---
 title: 'Mapping Workshop'
 description: 'In the past decade, interactive maps have become one of the most popular ways to visualize and explore spatial data. Responding to the demand, mapping companies such as ESRI have developed a suite of tools for both creating and contextualizing interactive maps. While extremely helpful, some of the ESRI products are prohibitively expensive for many individuals. This workshop will use a combination of the public version of ESRI Online, which is free, and the free, open-source mapping software QGIS to build an interactive map. By the end of this workshop you will know the basics for making an interactive map that can be shared and embedded in a website. No mapping experience is necessary.'
-cover_image: '/images/workshops/img5.jpg'
 
 learning objectives:
   - Become familiar with fundamental mapping concepts, such as how spatial data is organized and displayed. 
@@ -18,15 +17,15 @@ learning objectives:
 estimated time:
   - 4 hours
 
-dependencies:
-  workshop prerequisites:
-    data-ethics:
+prerequisites:
+  - data-ethics:
       description: "(Recommended) In order to have a better understanding of the data formats we handle in this workshop, if you don't already have a foundational understanding of data formats and types, you can start by walking through our Data Ethics workshop."
       recommended: true
-  installations:
-      qgisguide: 
-        description: "(Required) To complete this workshop you will need to install QGIS. Step by step installation instructions are available here."
-        required: true
+  
+installations:
+  - qgisguide: 
+      description: "(Required) To complete this workshop you will need to install QGIS. Step by step installation instructions are available here."
+      required: true
 
 before getting started:
   - "[Create an ESRI Online Public account](https://doc.arcgis.com/en/arcgis-online/get-started/create-account.htm) (required) You will need to create a free account for ESRI Online to participate in this workshop."
@@ -77,6 +76,8 @@ Another mapping concept that's important to know is that the visualizations that
 
 There is another important type of data that we will not be using in this workshop, but you should be aware of. It's called "raster data." Raster data is an image, such as a satellite image, with "geolocations"—which just means location data. It's beneficial to store geographic data as raster data when you are working with continuous data, such as heat or elevation.<!-- TODO #12: add "raster data" to glossary -->
 
+TODO: clarify what these images are showing
+
 ![An example of a Polygon Map](/images/mapping/polygonsmap.png)
 
 ![An example of a Line Map](/images/mapping/polygonslinesmap.png)
@@ -84,6 +85,8 @@ There is another important type of data that we will not be using in this worksh
 ![An example of a Points, Lines, and Polygon Map](/images/mapping/pointslinespolygonsmap.png)
 
 Voilà!
+
+TODO: Have a section on vector data--there is a quiz about it but no explanation
 
 ## Evaluation
 
@@ -96,7 +99,7 @@ Vector data consists of? (check all that apply)
 - polygons*
 </Quiz>
 
-## Keywords
+### Keywords
 Do you remember the glossary terms from this section?
 
 - [Vector](https://github.com/DHRI-Curriculum/glossary/blob/v2.0/terms/vector.md)
@@ -131,7 +134,6 @@ A friend looks over your shoulder as you are going through the workshop. They as
 
 # Ethics of Mapping
 
-
 ![Quote: "Maps are embedded within power relations and mediate those relations through spatial representations — Pavlovskaya, M.E. (2006)"](/images/mapping/quote1.png)
 
 In introduction to mapping courses we are often told that every map starts with a lie—that the earth is flat. From the first step of having to choose a mapping projection and decide on which types of inaccuracies you would be willing to sacrifice, the process of mapping is filled with ethical choices. Over the years, many of these decisions have been obscured through a greater reliance on technology. Today, (far too many) mapmakers allow the software to make decisions for them. However, whether these are active or passive decisions, they are still decisions that affect the map and the viewers interpretation of the map.
@@ -148,7 +150,7 @@ Important ethical decisions that every mapmaker must consider are:
 
 - **What data should I use?** If you choose to use data that's already collected (e.g. Census data), are you using it because it's the easiest to access or because it's the most appropriate data to answer your research question? What are the limitations of using data that hasn't been collected or managed by you?
 - **How should I classify the data?** What categories will you create? For example, if you are working with racial demographics, will you report on the categories such as Latinx, non-Latinx White, non-Latinx Black, Latinx White, Latinx Black, etc, or will you provide broader categories such as people of color and white? What are the implications of choosing more general categories?
-- **At what resolution or scale should the data be aggregated?** If you are studying a phenomena at the neighborhood level, how do you define the boundaries of a neighborhood? Is it based on the school district, the Census Designated Place (CDP), the voting district, or maybe a boundary that doesn't have a formal delination, such as a sense of community among people?
+- **At what resolution or scale should the data be aggregated?** If you are studying a phenomena at the neighborhood level, how do you define the boundaries of a neighborhood? Is it based on the school district, the Census Designated Place (CDP), the voting district, or maybe a boundary that doesn't have a formal delineation, such as a sense of community among people?
 - **What are the implications of aggregating the data at a certain scale?** For example, let's say you are studying the differences between urban and suburban areas. If you aggregate your data at the level of counties, what could be missing from that representation of the data? Is something happening at the level of the neighborhood or town, which could prove useful to answer your research question? This is not to say that the smallest scales are always the best to work with, but rather to suggest that when we aggregate data, we need to be aware of what distinctions we are hiding in the process.
 - **What colors and symbols should I use?** Should you represent a population in red or blue? Red normally signals something that is alarming, while blue is a more neutral color. These subjective cartographic design decisions greatly impact viewer's understanding of the map.
 
@@ -171,7 +173,7 @@ Have a look at [this map](https://www.nytimes.com/interactive/2020/us/covid-19-v
 
 # Making an Interactive Map: Introduction
 
-Every map should start with a good research question. But what makes for a good mapping research question? The key, I find, is to start with a simple, answerable question. It's often the case that a seemingly simple and boring question can lead to bigger and more interesting questions. However, if you start with the big, complex question, it could be too overwhelming. So start small and then build on your question, if needed. Also, what do I mean by "answerable"? In the mapping world, this can mean several things. It could mean a question that can be answered by using preexisting data or data that can realistically be collected by the mapmaker. Suppose you want to map how Americans in different counties feel about a certain issue, but that national survey hasnt been done and you don't have the resources to do it, then this would fall under the category of an unanswerable question. Also if you want to map boundaries that havent been created, such as homeschool pods, then this might be an unanswerable question (again if you don't have the resources to create the boundary from scratch).
+Every map should start with a good research question. But what makes for a good mapping research question? The key, I find, is to start with a simple, answerable question. It's often the case that a seemingly simple and boring question can lead to bigger and more interesting questions. However, if you start with the big, complex question, it could be too overwhelming. So start small and then build on your question, if needed. Also, what do I mean by "answerable"? In the mapping world, this can mean several things. It could mean a question that can be answered by using preexisting data or data that can realistically be collected by the mapmaker. Suppose you want to map how Americans in different counties feel about a certain issue, but that national survey hasn't been done and you don't have the resources to do it, then this would fall under the category of an unanswerable question. Also if you want to map boundaries that haven't been created, such as homeschool pods, then this might be an unanswerable question (again if you don't have the resources to create the boundary from scratch).
 
 By these standards, for this workshop we have a simple, easily answerable question.
 
@@ -186,9 +188,9 @@ What kind of data do we need to make this map?
 
 - **Location of protests.** This data didn't exist, so I had to create it. I tried to find all of the protests that took place from May 28, 2020 to June 3, 2020. Since this was based on my own ability to capture the data from news articles, I assume that there are protests that happened during that week that are not in my dataset. When I publish my map, it will be important to state this assumption and include the methodology for how this data was collected.
 - **Shapes to represent the neighborhoods.** For NYC neighborhoods we can download a shapefile (which is a form of spatial data) from NYC Open Data. The file can be [downloaded here](https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas-NTA-/cpf4-rkhq). Click on "Export" and select "Shapefile". A compressed folder will download. Move the folder out of your downloads and into a folder on your computer were you will be keeping all of the data for this workshop. When you open the folder you will notice there are four different files in there that all have the same name, yet are a different file type. In order for a shapefile to work, all of this data needs to stay together. Please compress the folder, so that the entire folder can be uploaded into our mapping software when we are ready to use it.
-- **Census data on race by neighborhood.** Census generated demographic data can be downloaded as a CSV file from the Census website. I've already downloaded the spreadsheet and cleaned it up for us so that it only has the variables that we are interested in—`GeoName` (neighborhood name), `GeoID` (a unique identifier for each neighborhood), and `BINHP` (Percent Black). You can find this file [here](https://github.com/DHRI-Curriculum/mapping/blob/v2.0/dataset/racebyneighborhood.csv)
+- **Census data on race by neighborhood.** Census generated demographic data can be downloaded as a CSV file from the Census website. I've already downloaded the spreadsheet and cleaned it up for us so that it only has the variables that we are interested in—`GeoName` (neighborhood name), `GeoID` (a unique identifier for each neighborhood), and `BINHP` (Percent Black). You can find this file on GitHub [here](https://github.com/DHRI-Curriculum/mapping/blob/v2.0/dataset/racebyneighborhood.csv). Please download it as well.
 
-## Preview the Result
+### Preview the Result
 
 To get a better idea of what we will be building together, you can take a look at a final version of the [Location of BLM Protests Map](http://arcg.is/1KyC9O).
 
@@ -217,7 +219,7 @@ A spatial join by attribute is used when you want to join which combination of l
 - spatial data to spatial data
 </Quiz>
 
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 
@@ -227,11 +229,11 @@ Do you remember the glossary terms from this section?
 
 # Performing a Spatial Join
 
-We will use QGIS which is a free and open source mapping software that will allow us to do pretty much any spatial operation that you could ever want! If you haven't yet installed QGIS you can do so by following these [installation instructions](https://github.com/DHRI-Curriculum/install/blob/main/sections/qgis.md) 
+We will use QGIS which is a free and open source mapping software that will allow us to do pretty much any spatial operation that you could ever want! If you haven't yet installed QGIS you can do so by following these [installation instructions](https://github.com/DHRI-Curriculum/install/blob/main/sections/qgis.md).
 
-## Open QGIS
+### Open QGIS
 
-First, go ahead and open QGIS. When you open the application, you'll see an interface that looks like this:
+After installing, go ahead and open QGIS. When you open the application, you'll see an interface that looks like this:
 
 ![Screenshot overviewing QGIS's interface](/images/mapping/qgisinterface.png)
 
@@ -323,7 +325,7 @@ What's needed to perform a *spatial join by attribute*? (check all that apply)
 - The text file must have precise location data, such as an address or latitude and longitude.
 </Quiz>
 
-## Keywords
+### Keywords
 - [Spatial join by attribute](https://github.com/DHRI-Curriculum/glossary/blob/v2.0/terms/joinbyattribute.md)
 - [Spatial join by location](https://github.com/DHRI-Curriculum/glossary/blob/v2.0/terms/joinbylocation.md)
 
@@ -332,7 +334,7 @@ What's needed to perform a *spatial join by attribute*? (check all that apply)
 
 Now our neighborhood shapefile (containing the demographic information) is ready to be exported from QGIS and uploaded into ArcGIS Online where we will be able to turn it into an interactive map.
 
-## Preparing for the Export
+### Preparing for the Export
 
 Since shapefiles are actually a set of 4-6 files, it's helpful to create a folder for them so they don't get mixed up with your other files. So, before we export the shapefile file, let's create a folder for it. 
 
@@ -368,7 +370,7 @@ Why do we create a folder for the exported shapefile? (check all that apply)
 
 Now we will be using ArcGIS Online to make the map interactive. Remember that we could have done everything in ArcGIS if we had the paid version, but since we are working with the free public version we cannot perform any spatial operations, such as the spatial join that we just did. That's why we used QGIS first. Now that we have the data exactly how we want it, we can use ArcGIS for free to visualize the data and create an interactive map.
 
-## Login to ArcGIS Online and Setup Interface
+### Login to ArcGIS Online and Setup Interface
 
 First, you'll have to set yourself up with a free ArcGIS Online public account. To do so, open [ArcGIS Online](https://www.arcgis.com), and click "Sign in." If you don't already have an account, you can create one for free using your email, or your Google, Facebook or Github account.
 
@@ -419,7 +421,7 @@ You should now see your maps styled with your new color ramp. You'll also see th
 
 Play around with the symbology settings more. See how the map looks when you change the transparency, the number of classes and other features. To go back to the symbology settings, hover over the name of the map layer in the layers panel and select the *change style* button (the one with with three shapes--circle square and triangle). Then click *Options*.
 
-## Keywords
+### Keywords
 - [color ramp](https://github.com/DHRI-Curriculum/glossary/blob/v2.0/terms/colorramp.md)
 
 
@@ -476,11 +478,9 @@ To geocode the CSV file, the **Field Name** column (pulled from the CSV file) ne
 
 If they don't match, then click on the cell(s) to change it. Most likely, since the mapping software is pretty good at this stuff, they will all be automatically matched, so you won't have to change anything. Finally, click **Add Layer**.
 
-## Note on Geocoding Limits
+<Info>__Note__: ArcGIS will only geocode up to 100 entries. If you have more than 100, you can use the Census Geocoder which allows you to geocode up to 1000 entries.</Info>
 
-Note: ArcGIS will only geocode up to 100 entries. If you have more than 100, you can use the Census Geocoder which allows you to geocode up to 1000 entries.
-
-## Keywords
+### Keywords
 
 Do you remember the glossary terms from this section?
 - [geocoding](https://github.com/DHRI-Curriculum/glossary/blob/v2.0/terms/geocoding.md)
@@ -572,7 +572,7 @@ Congratulations! You've made an informative and interactive map with two layers 
 
 # Theory to Practice
 
-## Review your knowledge: 4 questions from the lessons
+### Review your knowledge: 4 questions from the lessons
 
 __1. A spatial join by attribute is used when you want to join which combination of layers: (Select one of the following)__
 
@@ -615,26 +615,26 @@ __4. Vector data consists of? (Select all that apply)__
 
 Revisit lesson [Introduction to Mapping](/workshops/mapping/?page=2) to learn more.
 
-## __Suggested Further Readings__
+### Suggested Further Readings
 
 - [Top Mapping Mistakes](https://digitalfellows.commons.gc.cuny.edu/2021/05/12/top-mapping-mistakes/)
 - [Which Color Scale to Use When Visualizing Data](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/)
 
-## Other Tutorials
+### Other Tutorials
 
 - [Data literacies](https://curriculum.dhinstitutes.org/workshops/data-literacies/)
 
-## Projects or Challenges to Try
+### Projects or Challenges to Try
 
 - Try adding context to your interactive map by turning it into an [ESRI Story Map](https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4). Story maps are a free ESRI application for creating multi-media narratives. You can use the same map that you made in ESRI's ArcGIS Online program and import it into its Story Map application to add text, photos and video. You can even take the reader to different points around the map and give them information about each location.
 
-## Discussion Questions
+### Discussion Questions
 
 - In the workshop we learned that every map should begin with a simple and answerable research question. What else makes for a good mapping research question? Remember that maps can be exploratory so we don't need to fully answer the question. 
 - What makes a map ethical or unethical?
 - Think about the audience or audiences for your map. Do you think different audiences should warrant constructing the map in different ways? 
 
-## More Resources
+### More Resources
 
-- [Finding data for mapping: tips and tricks](https://digitalfellows.commons.gc.cuny.edu/2018/11/24/finding-data-for-mapping-tips-and-tricks/)
-- [FlowingData](https://flowingdata.com/) for a compilation of cool maps and visualization tips
+- [Finding data for mapping: tips and tricks](https://digitalfellows.commons.gc.cuny.edu/2018/11/24/finding-data-for-mapping-tips-and-tricks/).
+- [FlowingData](https://flowingdata.com/) for a compilation of cool maps and visualization tips.
