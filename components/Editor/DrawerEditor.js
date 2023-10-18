@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 // import Webvm from '../Wasm/Webvm';
 import { useState, useEffect, useRef, Fragment } from 'react';
-import { Moving } from '@mui/icons-material';
 
 export default function DrawerEditor(props) {
 
@@ -127,19 +126,21 @@ export default function DrawerEditor(props) {
         }
         else if (language === 'r') {
             return (
-                <REditorComponent language={language}
-                    defaultCode={text}
-                    handleOpenClose={handleOpenClose}
-                    runButtonNeeded={true}
-                    {...props} />
+                <></>
+                // <REditorComponent language={language}
+                //     defaultCode={text}
+                //     handleOpenClose={handleOpenClose}
+                //     runButtonNeeded={true}
+                //     {...props} />
             )
         }
         else if (language === 'computer') {
             return (
-                <Webvm
-                    handleOpenClose={handleOpenClose}
-                    runButtonNeeded={false}
-                />
+                <></>
+                // <Webvm
+                //     handleOpenClose={handleOpenClose}
+                //     runButtonNeeded={false}
+                // />
             )
         }
         else {
@@ -155,7 +156,7 @@ export default function DrawerEditor(props) {
     return (
         <Fragment>
             <div className='editor-button-container'>
-                <Button
+                {language== 'python' && <Button
                     aria-label="open drawer"
                     className={'editor-button'}
                     onClick={handleOpenClose}
@@ -165,7 +166,7 @@ export default function DrawerEditor(props) {
                 >
                     <CodeIcon />
                     Open Code Editor
-                </Button>
+                </Button>}
             </div>
             <Drawer
                 variant="persistent"
