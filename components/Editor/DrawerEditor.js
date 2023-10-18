@@ -1,27 +1,83 @@
 // import InterpreterComponent from './InterpreterComponent';
-import CodeEditorComponent from './PythonEditorComponent';
+import PythonEditorComponent from './PythonEditorComponent';
+// import JSEditorComponent from './JSEditorComponent';
+// import REditorComponent from './REditorComponent';
+// import Jupyter from '../Wasm/Jupyter';
 import CodeIcon from '@mui/icons-material/Code';
 import Button from '@mui/material/Button';
-import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import Drawer from '@mui/material/Drawer';
+// import Webvm from '../Wasm/Webvm';
 import { useState, useEffect, useRef, Fragment } from 'react';
-import yaml from '../../config.yml'
+import { Moving } from '@mui/icons-material';
 
 export default function DrawerEditor(props) {
 
-    const language = props.language;  // this is the language of the editor
-    // props.editorOpen and props.setEditorOpen are passed in from the parent component
-   
+    const language = props.language.toLowerCase();  // this is the language of the editor
     const text = props.text;  // this is the text in the editor
-    const setText = props.setText;  // this is the function to set the text in the editor
-
     const open = props.open;  // this is the state of the drawer
     const setOpen = props.setEditorOpen;  // this is the function to set the state of the drawer
     const [show, setShow] = useState(false);
+    const [isResizing, setIsResizing] = useState(false);
+    const [lastDownX, setLastDownX] = useState(0);
+    const [newWidth, setNewWidth] = useState('45%');
 
-    // useEffect(() => {
-    //     setText(window.localStorage.getItem('code') || '');
-    // }, [])
+
+
+    const handleMousedown = e => {
+        setIsResizing(true);
+        setLastDownX(e.clientX);
+    };
+
+    const handleMouseup = e => {
+        setIsResizing(false);
+        if (document.getElementById('iframe')) {
+            document.getElementById('iframe').style.pointerEvents = 'auto';
+        }
+        document.body.style.webkitUserSelect = 'auto';
+        document.body.style.mozUserSelect = 'auto';
+        document.body.style.msUserSelect = 'auto';
+        document.body.style.oUserSelect = 'auto';
+        document.body.style.userSelect = 'auto';
+    };
+
+    useEffect(() => {
+        const handleMousemove = e => {
+            // we don't want to do anything if we aren't resizing.
+            if (!isResizing) {
+                return;
+            }
+            // make the iframe  have pointer-events: none;
+            // so that the mousemove event is captured by the parent
+            // and not the iframe
+            if (document.getElementById('iframe')) {
+                document.getElementById('iframe').style.pointerEvents = 'none';
+            }
+            // disable select on everything
+            document.body.style.webkitUserSelect = 'none';
+            document.body.style.mozUserSelect = 'none';
+            document.body.style.msUserSelect = 'none';
+            document.body.style.oUserSelect = 'none';
+            document.body.style.userSelect = 'none';
+
+
+            let offsetRight =
+                document.body.offsetWidth - (e.clientX - document.body.offsetLeft);
+            let minWidth = 50;
+            let maxWidth = 1200;
+            console.log('offsetRight', offsetRight)
+            if (offsetRight > minWidth && offsetRight < maxWidth) {
+                setNewWidth(offsetRight);
+            }
+        };
+
+        document.addEventListener('mousemove', handleMousemove);
+        document.addEventListener('mouseup', handleMouseup);
+
+        return () => {
+            document.removeEventListener('mousemove', handleMousemove);
+            document.removeEventListener('mouseup', handleMouseup);
+        }
+    }, [isResizing]);
 
     const handleOpenClose = () => {
         setOpen(!open);
@@ -46,6 +102,56 @@ export default function DrawerEditor(props) {
         // window.localStorage.setItem('code', newText);
     }
 
+    const whichEditor = () => {
+        if (language === 'python') {
+            return (
+                <PythonEditorComponent language={language}
+                    defaultCode={text}
+                    handleOpenClose={handleOpenClose}
+                    runButtonNeeded={true}
+                    {...props} />
+                // <Jupyter
+                //     handleOpenClose={handleOpenClose}
+                //     runButtonNeeded={false}
+                // />
+            )
+        }
+        else if (language === 'javascript') {
+            return (
+                <JSEditorComponent language={language}
+                    defaultCode={text}
+                    handleOpenClose={handleOpenClose}
+                    runButtonNeeded={true}
+                    {...props} />
+            )
+        }
+        else if (language === 'r') {
+            return (
+                <REditorComponent language={language}
+                    defaultCode={text}
+                    handleOpenClose={handleOpenClose}
+                    runButtonNeeded={true}
+                    {...props} />
+            )
+        }
+        else if (language === 'computer') {
+            return (
+                <Webvm
+                    handleOpenClose={handleOpenClose}
+                    runButtonNeeded={false}
+                />
+            )
+        }
+        else {
+            return (
+                <div>
+                    <h2>Language not supported</h2>
+                </div>
+            )
+        }
+    }
+
+
     return (
         <Fragment>
             <div className='editor-button-container'>
@@ -54,10 +160,11 @@ export default function DrawerEditor(props) {
                     className={'editor-button'}
                     onClick={handleOpenClose}
                     style={{
-                        color: "#32c259",
+                        color: "white",
                     }}
                 >
                     <CodeIcon />
+                    Open Code Editor
                 </Button>
             </div>
             <Drawer
@@ -71,19 +178,49 @@ export default function DrawerEditor(props) {
                 }}
                 // if small, then drawer is 100% width, otherwise some portion
                 sx={{
-                    width: { xs: '100%', sm: '100%', md: '35%' },
+                    width: { xs: '100%', sm: '100%', md: '45%' },
                     flexShrink: { xs: 1, sm: 0 },
-                    '& .MuiDrawer-paper': { width: { xs: '100%', sm: '100%', md: '35%' }, boxSizing: 'border-box' },
+                    '& .MuiDrawer-paper': {
+                        width: { xs: '100%', sm: '100%', md: newWidth }, boxSizing: 'border-box'
+                    },
                     display: !show ? 'none' : 'block',
                 }}
 
-            >
+            ><div
+                    id="dragger"
+                    onMouseDown={event => {
+                        handleMousedown(event);
+                        // setIsResizing(true);
+                    }}
+                    onClick={event => {
+                        event.stopPropagation();
+                        console.log('clicked')
+                    }}
+                    style={{
+                        width: '5px',
+                        cursor: 'ew-resize',
+                        padding: '4px 0 0',
+                        borderTop: '1px solid #ddd',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        zIndex: '100',
+                        backgroundColor: '#f4f7f9'
+                    }}
+                />
+                <Button
+                    aria-label="open drawer"
+                    className={'editor-button'}
+                    onClick={handleOpenClose}
+                    style={{
+                        color: "white",
+                    }}
+                >
+                    <CodeIcon /> Close Code Editor
+                </Button>
                 <div className='drawer-editor'>
-                    <CodeEditorComponent language={language}
-                        onChange={commitCode}
-                        defaultCode={text}
-                        handleOpenClose={handleOpenClose}
-                        {...props} />
+                    {whichEditor()}
                 </div>
             </Drawer>
         </Fragment>
